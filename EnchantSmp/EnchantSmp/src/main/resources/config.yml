@@ -1,0 +1,111 @@
+# ==========================================================
+#  EnchantSmp configuration   (use /enchant reload after edits)
+# ==========================================================
+
+rolling:
+  # Minutes between automatic rolls while /enchant start is active.
+  interval-minutes: 10
+  # Start the automatic rolling when the server boots.
+  start-on-enable: false
+  # Tell players when an automatic roll could not be applied (empty hand etc.).
+  notify-failures: true
+  # Also announce each successful roll to the whole server.
+  broadcast: false
+
+enchantments:
+  # Enchantments that can NEVER be rolled (use the part after "minecraft:").
+  excluded:
+    - binding_curse
+    - vanishing_curse
+  # Override the maximum level an enchantment may reach through rolling.
+  # Anything not listed uses the vanilla maximum.  Example:
+  max-levels: {}
+  #  efficiency: 5
+  #  sharpness: 7
+
+# Behaviour of enchantments on items that normally can't hold them.
+# Enchantments that already work on any item in vanilla (Sharpness, Efficiency mining
+# speed, Fortune, Unbreaking, Looting...) are not listed: Minecraft handles them itself.
+effects:
+  # How often (in ticks) the "while holding" effects are refreshed. 20 ticks = 1 second.
+  update-ticks: 4
+
+  # Protection family: reduces damage while the item is in your MAIN HAND.
+  # It reduces damage by percentage like armor does. It never adds hearts.
+  protection:
+    enabled: true
+  fire_protection:
+    enabled: true
+  blast_protection:
+    enabled: true
+    # Explosion when a thrown trident carrying Blast Protection lands.
+    trident-explosion:
+      enabled: true
+      base-power: 1.0
+      power-per-level: 1.0
+      break-blocks: false
+      set-fire: false
+  projectile_protection:
+    enabled: true
+  feather_falling:
+    enabled: true
+
+  thorns:
+    enabled: true
+
+  respiration:
+    enabled: true
+
+  # Efficiency on non-mining items = faster attack speed (+10% per level by default).
+  efficiency:
+    attack-speed:
+      enabled: true
+      bonus-per-level: 0.10
+
+  depth_strider:
+    enabled: true
+  swift_sneak:
+    enabled: true
+  aqua_affinity:
+    enabled: true
+
+  frost_walker:
+    enabled: true
+    # Radius is 2 + level, capped at this value.
+    max-radius: 16
+
+  # Riptide on a non-trident item: right-click to launch yourself forward, no water needed.
+  riptide:
+    enabled: true
+    # Launch speed = 3 * (1 + level) / 4 * multiplier   (same maths as vanilla)
+    speed-multiplier: 1.0
+    cooldown-ticks: 40
+
+  # Lunge: left-click in the air to dash forward.
+  lunge:
+    enabled: true
+    base-speed: 0.6
+    speed-per-level: 0.45
+    cooldown-ticks: 15
+    # Hunger points drained per level (0 = free).
+    hunger-per-level: 0
+
+messages:
+  prefix: '<gradient:#7f5af0:#2cb67d><bold>EnchantSmp</bold></gradient> <dark_gray>» </dark_gray>'
+  no-permission: '<red>You do not have permission to do that.'
+  usage: '<yellow>Usage: <white>/enchant <start|stop|roll [player]|rollall|reload>'
+  player-not-found: '<red>Player <white><player></white> is not online.'
+  console-needs-player: '<red>Console must name a player: /enchant roll <player>'
+  started: '<green>Automatic rolling started. Everyone gets a roll every <white><minutes></white> minute(s).'
+  already-started: '<yellow>Automatic rolling is already running.'
+  stopped: '<green>Automatic rolling stopped.'
+  already-stopped: '<yellow>Automatic rolling is not running.'
+  reloaded: '<green>Configuration reloaded.'
+  rolled: '<gray>You rolled <light_purple><enchant></light_purple> on your held item.'
+  rolled-upgrade: '<gray>Upgraded <light_purple><enchant></light_purple> <dark_gray>(was level <old>)</dark_gray>.'
+  roll-no-item: '<red>Hold an item in your main hand to receive an enchantment.'
+  roll-nothing-eligible: '<red>Every enchantment on this item is already at its maximum level.'
+  roll-sent: '<green>Rolled <light_purple><enchant></light_purple> for <white><player></white>.'
+  roll-sent-failed: '<red>Could not roll for <white><player></white> (empty hand or everything maxed).'
+  rollall-done: '<green>Rolled for <white><count></white> player(s).'
+  broadcast: '<white><player></white> <gray>rolled <light_purple><enchant></light_purple><gray>!'

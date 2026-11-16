@@ -1,0 +1,42 @@
+name: EnchantSmp
+version: '${version}'
+main: com.enchantsmp.EnchantSmp
+# Paper reads this as the minimum API version the plugin was written for.
+api-version: '26.1'
+description: Any enchantment on any item, with random enchantment rolling (Enchain SMP inspired).
+authors: [EnchantSmp]
+
+commands:
+  enchant:
+    description: Control EnchantSmp random enchantment rolling.
+    usage: /enchant <start|stop|roll [player]|rollall|reload>
+
+permissions:
+  enchantsmp.admin:
+    description: Everything EnchantSmp can do.
+    default: op
+    children:
+      enchantsmp.start: true
+      enchantsmp.stop: true
+      enchantsmp.roll: true
+      enchantsmp.roll.others: true
+      enchantsmp.rollall: true
+      enchantsmp.reload: true
+  enchantsmp.start:
+    description: Use /enchant start
+    default: op
+  enchantsmp.stop:
+    description: Use /enchant stop
+    default: op
+  enchantsmp.roll:
+    description: Use /enchant roll (on yourself)
+    default: op
+  enchantsmp.roll.others:
+    description: Use /enchant roll <player>
+    default: op
+  enchantsmp.rollall:
+    description: Use /enchant rollall
+    default: op
+  enchantsmp.reload:
+    description: Use /enchant reload
+    default: op

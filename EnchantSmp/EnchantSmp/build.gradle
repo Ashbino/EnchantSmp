@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.enchantsmp'
+version = '0.2.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        // Official PaperMC repository (the one the Paper docs tell you to use)
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    // "26.2.build.+" = newest published Paper 26.2 API build (as recommended by docs.papermc.io)
+    compileOnly 'io.papermc.paper:paper-api:26.2.build.+'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+processResources {
+    // Puts the version from this file into plugin.yml
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
+}
