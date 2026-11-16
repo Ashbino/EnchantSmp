@@ -1,0 +1,13 @@
+# Automatic roll interval, in minutes.
+roll-interval-minutes: 10
+
+# Maximum level used when an enchantment is first rolled.
+# Upgrades can roll any higher level up to this cap.
+maximum-enchantment-level: 5
+
+# How often a player may receive a roll while automatic rolling is active.
+# Each player is processed independently.
+skip-player-with-empty-hand: true
+
+# Explosion behaviour for Blast Protection on a thrown trident will be
+# implemented in a later update. Keep explosion power conservative.

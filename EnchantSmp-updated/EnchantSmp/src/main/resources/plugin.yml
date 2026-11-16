@@ -1,0 +1,14 @@
+name: EnchantSmp
+version: 0.1.0
+main: com.enchantsmp.EnchantSmp
+api-version: '26.2'
+description: Universal enchantments and individual random enchantment rolls.
+commands:
+  enchant:
+    description: Manage EnchantSmp
+    usage: /enchant <start|stop|roll|rollall|reload>
+    permission: enchantsmp.admin
+permissions:
+  enchantsmp.admin:
+    description: Allows managing EnchantSmp
+    default: op
